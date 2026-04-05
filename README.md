@@ -143,24 +143,35 @@ https://zenodo.org/records/19427234
 - Object pooling with structural reset  
 - Replaceable rendering layer (Bitmap / GPU-ready)  
 
----
+------------
 
 ## Folder Structure
 
+```
 src/
+│
 ├── app/Main.js
+│
 ├── assets/
+│
 ├── color/
+│
 ├── library/
+│
 ├── pool/
+│
 ├── particle/
+│
 ├── render/
+│
 ├── sound/
+│
 ├── system/
+│
 └── EngineStage.js
 
 index.html
-
+```
 
 All modules are designed to be replaceable.  
 The system maintains structure through boundaries, not dependencies.
