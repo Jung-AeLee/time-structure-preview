@@ -127,6 +127,14 @@ It is an emergent structure.
 
 ---
 
+## Publication
+
+This work is archived on Zenodo:
+
+https://zenodo.org/records/19427234
+
+---
+
 ## What This Framework Demonstrates
 
 - Frame-owned time architecture  
