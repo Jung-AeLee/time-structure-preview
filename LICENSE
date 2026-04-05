@@ -1,4 +1,4 @@
-LOST Preview License
+TIME Preview License
 Copyright (c) 2026 Jung-Ae Lee
 
 This repository is provided for architectural demonstration and educational purposes only.
@@ -14,7 +14,7 @@ The following are NOT permitted without explicit written permission:
 - Use of this repository as a production-ready commercial product.
 - Republishing the code as part of another commercial framework or engine.
 
-This repository represents a structural preview of the LOST framework.
+This repository represents a structural preview of the TIME framework.
 
 The production-ready distributed version,
 including optimized performance modules,
@@ -23,6 +23,6 @@ and extended renderer implementations,
 is released separately under a commercial license.
 
 For commercial licensing inquiries:
-Contact: postinsight@naver.com
+Contact: jungae1000@karts.ac.kr
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
