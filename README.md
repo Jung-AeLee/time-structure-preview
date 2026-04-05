@@ -56,25 +56,28 @@ The system operates under the following principles:
 - Color is not decoration — it is a computational coordinate  
 - External input acts as a coefficient, not a trigger  
 
+
+## Architecture
+
 ```mermaid
 graph TD
 
     subgraph TIME_System ["TIME Coordinate System"]
         direction LR
         
-        T[Temporal Axis<br/>(shouldUpdate)]
-        O[Observation Axis<br/>(avg / delta / variance)]
-        Tr[Trigger Axis<br/>(frame / cycle / event)]
+        T["Temporal Axis<br/>(shouldUpdate)"]
+        O["Observation Axis<br/>(avg / delta / variance)"]
+        Tr["Trigger Axis<br/>(frame / cycle / event)"]
     end
 
-    P[Particle (data only)]
+    P["Particle (data only)"]
 
-    P --> A[rhythmCounter<br/>(accumulation)]
+    P --> A["rhythmCounter<br/>(accumulation)"]
     T --> A
 
-    A --> H[Hue Mapping<br/>(coordinate transform)]
+    A --> H["Hue Mapping<br/>(coordinate transform)"]
 
-    H --> R[Rendered Output<br/>(interpretation)]
+    H --> R["Rendered Output<br/>(interpretation)"]
     O --> R
     Tr --> R
 
