@@ -100,18 +100,19 @@ Instead, time is distributed across independent axes, and the system evaluates c
 
 ## Architecture
 
+```text
 [External Input k]
-↓
+      ↓
 [Temporal Sampling] ← stride
-↓
+      ↓
 [State Update] ← dynamicStep
-↓
+      ↓
 [History Accumulation]
-↓
+      ↓
 [Temporal Compression] (distance-based)
-↓
+      ↓
 [Rendering]
-
+```
 
 External input **k** does not directly drive state transitions.
 
