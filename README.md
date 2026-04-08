@@ -1,176 +1,210 @@
-# React Temporal Task System
+# TIME — A Condition-Based Temporal System
 
-A React-based task system focused on **temporal state flow and history tracking**.
+This repository is part of a broader architectural study:
 
-This project explores state as a **time-based structure**, enabling undo/redo functionality through a history stack model.
+→ *Beyond Patterns: Designing the Boundaries of Code*
+
+While **LOST** focuses on the removal of ownership (refactoring, decoupling, separation of concerns),  
+**TIME** explores how a system can operate without owning time.
+
+The system does not simulate time.  
+It distributes temporal properties across data and interprets them per frame.
+
+Together, LOST and TIME form a dual structure:
+
+- **LOST** → removal of ownership  
+- **TIME** → distribution of condition  
 
 ---
 
-## Key Features
+## Origin
 
-- Custom hook architecture (extensible design)
-- State history (undo / redo)
-- Temporal UI rendering (state changes over time)
-- Immutable state transitions
-- Centralized state control
+This algorithm originates from the work *time* (2007), first presented as **MODE A (Native Natural Time)** in the exhibition *Horizon Without Boundaries*.
+
+It represents an early exploration of how discrete accumulation transitions into continuous temporal perception.
+
+This repository reconstructs and extends that idea into a formal system.
 
 ---
 
-## Project Structure
+## Concept
 
-```bash
+This is not a visual effect template.
+
+It is a structural experiment in:
+
+- data ownership  
+- temporal distribution  
+- engine boundaries  
+
+The system operates under the following principles:
+
+- Time is not owned by objects  
+- Input does not create time  
+- The loop defines temporal existence  
+- The system performs interpretation, not instruction  
+
+> Microphone input does not generate time.  
+> It is only sampled within it.
+
+---
+
+## Core Principles
+
+- No module owns time except the frame loop  
+- State is replaced by framed conditions and recorded history  
+- Color is not decoration — it is a computational coordinate  
+- External input acts as a coefficient, not a trigger  
+
+
+## Architecture
+
+```mermaid
+graph TD
+
+    subgraph TIME_System ["TIME Coordinate System"]
+        direction LR
+        
+        T["Temporal Axis<br/>(shouldUpdate)"]
+        O["Observation Axis<br/>(avg / delta / variance)"]
+        Tr["Trigger Axis<br/>(frame / cycle / event)"]
+    end
+
+    P["Particle (data only)"]
+
+    P --> A["rhythmCounter<br/>(accumulation)"]
+    T --> A
+
+    A --> H["Hue Mapping<br/>(coordinate transform)"]
+
+    H --> R["Rendered Output<br/>(interpretation)"]
+    O --> R
+    Tr --> R
+
+    classDef axis fill:#2b2b2b,stroke:#aaa,color:#fff
+    classDef core fill:#111,stroke:#fff,color:#fff
+
+    class T,O,Tr axis
+    class P,A,H,R core
+```
+
+This diagram does not represent a signal flow.
+
+It describes a coordinate system in which temporal behavior emerges through interpretation.
+
+The particle does not contain time.
+
+Instead, time is distributed across independent axes, and the system evaluates conditions per frame to produce output.
+
+---
+
+## Architecture
+
+```text
+[External Input k]
+      ↓
+[Temporal Sampling] ← stride
+      ↓
+[State Update] ← dynamicStep
+      ↓
+[History Accumulation]
+      ↓
+[Temporal Compression] (distance-based)
+      ↓
+[Rendering]
+```
+
+External input **k** does not directly drive state transitions.
+
+Instead, it modulates how time is:
+
+- accumulated  
+- sampled  
+- compressed  
+- interpreted  
+
+Time is not a parameter.  
+It is an emergent structure.
+
+---
+
+## Publication
+
+This work is archived on Zenodo:
+
+https://zenodo.org/records/19427234
+
+---
+
+## What This Framework Demonstrates
+
+- Frame-owned time architecture  
+- Condition-based interpretation (no state branching)  
+- Particle history as framed state (not a state machine)  
+- Object pooling with structural reset  
+- Replaceable rendering layer (Bitmap / GPU-ready)  
+
+------------
+
+## Folder Structure
+
+```
 src/
-├── components/
-│ ├── Todos.jsx # Main state container
-│ ├── TodosForm.jsx # Input component
-│ └── TodoItem.jsx # Individual todo item
-└── hooks/ useUndoRedo.js # (optional) custom hook for history
+│
+├── app/Main.js
+│
+├── assets/
+│
+├── color/
+│
+├── library/
+│
+├── pool/
+│
+├── particle/
+│
+├── render/
+│
+├── sound/
+│
+├── system/
+│
+└── EngineStage.js
+
+index.html
 ```
+
+All modules are designed to be replaceable.  
+The system maintains structure through boundaries, not dependencies.
 
 ---
 
-## Getting Started
-
-### 1. Clone the repository
+## Quick Start
 
 ```bash
-git clone <your-repo-url>
-cd react-todo
+npx serve .
 ```
-
-### 2. Install dependencies
+or
 
 ```bash
 npm install
-```
-
-### 3. Run development server
-
-```bash
 npm run dev
 ```
+Open in a modern browser (ES Modules required).
 
-### 4. Open in browser
+## Relation to LOST
 
-http://localhost:5173
+This repository is conceptually paired with:
 
----
+→ LOST — Structural Refactoring and De-ownership System
 
-## Core Concept
+LOST removes ownership.
+TIME redistributes it.
 
-This system treats application state as a temporal sequence, not just a static value.
-
-State Model
-past     → previous states
-present  → current state
-future   → redo states
-
-State Flow
-Action → past.push(present) → present updated → future cleared
-
-### State Timeline Visualization
-
-```bash
-[ Past Stacks ]  <---  ( Present )  --->  [ Future Stacks ]
-   [t-2, t-1]            [ t ]               [t+1, t+2]
-      ↑                    |                    ↑
-    Undo                 Current               Redo
-```
-
-### Core State Principles
-
-- **Immutable State Transitions**  
-  State updates are performed using React’s functional update pattern (`setState((prev) => ...)`) and the spread operator (`...`) to ensure immutability.  
-  This guarantees that the original state is never mutated, preserving predictable state transitions and enabling reliable history tracking.
-
-- **Functional Updates**  
-  Functional updates are used to ensure data consistency in asynchronous environments.  
-  By deriving the next state from the previous state, the system avoids race conditions and maintains a consistent state even when multiple updates are queued.
-
----
-
-## Undo / Redo Logic
-
-Undo
-- Moves current state → future
-- Restores last state from past
-
-Redo
-- Moves current state → past
-- Restores next state from future
-
----
-
-## Design Philosophy
-
-This project is built on the idea that:
-
-### “State is not static — it is a timeline.”
-
-Instead of overwriting state, we preserve its evolution as a structured history.
-
----
-
-## Future Improvements
-
-Time-based navigation (timeline slider)
-Persistent history (localStorage / backend)
-Advanced state compression
-Visualization of state transitions
-
----
+Together, they form a unified architectural model.
 
 ## Author
 
 Jungae Lee
 Korea National University of Arts
 jungae1000@karts.ac.kr
-
-## License
-
-This repository is released under the LOST Preview License.
-See LICENSE file for details.
-
-------------
-
-## Related Work
-
-https://bit.ly/Interpreted
-
-```text
-TEMPORAL_TASK Preview License
-Copyright (c) 2026 Jung-Ae Lee
-
-This repository is provided for architectural demonstration and educational purposes only.
-
-Permission is granted to:
-- View and study the source code.
-- Modify the code for personal, non-commercial experimentation.
-- Use the code for educational reference.
-
-The following are NOT permitted without explicit written permission:
-- Commercial redistribution of this repository or its derivatives.
-- Resale of the source code in whole or in part.
-- Use of this repository as a production-ready commercial product.
-- Republishing the code as part of another commercial framework or engine.
-
-This repository represents a structural preview of the TEMPORAL_TASK framework.
-
-The production-ready distributed version,
-including optimized performance modules,
-audio integration layers,
-and extended renderer implementations,
-is released separately under a commercial license.
-
-For commercial licensing inquiries:
-Contact: postinsight@naver.com jungae1000@karts.ac.kr
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
-```
-
-## Distribution Model
-
-The commercial distribution contains modules and optimizations that are not included in this repository.
-https://insightful3530.gumroad.com/l/TemporalTask
-
-
