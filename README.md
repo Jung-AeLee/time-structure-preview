@@ -18,16 +18,18 @@ This project explores state as a **time-based structure**, enabling undo/redo fu
 
 ## Project Structure
 
+```bash
 src/
 ├── components/
 │
 ├── Todos.jsx # Main state container
 │
-├──TodosForm.jsx # Input component
+├── TodosForm.jsx # Input component
 │
 ├── TodoItem.jsx # Individual todo item
 │
 └── hooks/ useUndoRedo.js # (optional) custom hook for history
+```
 
 ---
 
