@@ -70,10 +70,12 @@ Action → past.push(present) → present updated → future cleared
 
 ### State Timeline Visualization
 
+```bash
 [ Past Stacks ]  <---  ( Present )  --->  [ Future Stacks ]
    [t-2, t-1]            [ t ]               [t+1, t+2]
       ↑                    |                    ↑
     Undo                 Current               Redo
+```
 
 ### Core State Principles
 
