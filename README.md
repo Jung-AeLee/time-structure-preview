@@ -126,3 +126,51 @@ Jungae Lee
 Korea National University of Arts
 jungae1000@karts.ac.kr
 
+## License
+
+This repository is released under the LOST Preview License.
+See LICENSE file for details.
+
+------------
+
+## Related Work
+
+https://bit.ly/Interpreted
+
+```text
+TEMPORAL_TASK Preview License
+Copyright (c) 2026 Jung-Ae Lee
+
+This repository is provided for architectural demonstration and educational purposes only.
+
+Permission is granted to:
+- View and study the source code.
+- Modify the code for personal, non-commercial experimentation.
+- Use the code for educational reference.
+
+The following are NOT permitted without explicit written permission:
+- Commercial redistribution of this repository or its derivatives.
+- Resale of the source code in whole or in part.
+- Use of this repository as a production-ready commercial product.
+- Republishing the code as part of another commercial framework or engine.
+
+This repository represents a structural preview of the TEMPORAL_TASK framework.
+
+The production-ready distributed version,
+including optimized performance modules,
+audio integration layers,
+and extended renderer implementations,
+is released separately under a commercial license.
+
+For commercial licensing inquiries:
+Contact: postinsight@naver.com jungae1000@karts.ac.kr
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+```
+
+## Distribution Model
+
+The commercial distribution contains modules and optimizations that are not included in this repository.
+https://insightful3530.gumroad.com/l/TemporalTask
+
+
